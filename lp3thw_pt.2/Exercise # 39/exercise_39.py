@@ -1,0 +1,81 @@
+# create a mapping of state to abbreviation
+states = {
+    'Oregon': 'OR',
+    'Florida': 'FL',
+    'California': 'CA',
+    'New York': 'NY',
+    'Michigan': 'MI',
+    'Georgia' : 'GA',
+    'Mississippi':'MS',
+    'Louisiana': 'LA',
+    'Alabama': 'AL',
+    'Texas': 'TX'
+}
+
+# Create a basic city with some names in them.
+cities = {
+    'CA': 'San Francisco',
+    'MI': 'Detroit',
+    'FL': 'Jacksonville',
+    'TX': 'Houston',
+    'AL': 'Montgomery'
+}
+
+
+#add some more cities
+cities ['NY'] =  'New York'
+cities ['OR']= 'Portland'
+cities ['MS'] = 'Jackson'
+cities ['LA'] = 'Baton Rouge'
+cities ['GA'] = 'Atlanta'
+
+# print out some cities
+print('-' * 10)
+print("NY State has: ", cities['NY'])
+print("OR State has:", cities['OR'])
+print("MS state has:", cities['MS'])
+print("LA state has:", cities ['LA'])
+print("GA state has:", cities['GA'])
+
+#print some states
+print('-' * 10)
+print("Michigan's abbreviation is: ", states['Michigan'])
+print("Florida's abbreviation is:", states['Florida'])
+print("California's abbreviation is:", states['California'])
+print("Texas's abbreviation is:", states['Texas'])
+print("Alabama abbreviation is:", states['Alabama'])
+
+# do it by using the state then cities cities dict
+print('-' * 10)
+print("Michigan has: ", cities[states['Michigan']])
+print("Florida has: ", cities[states['Florida']])
+
+#print every state abbreviation
+print('-' * 10)
+for state, abbrev in list(states.items()):
+    print(f"{state} is abbreviated  {abbrev}")
+
+# print every city in state
+print('-' * 10)
+for abbrev, city in list(cities.items()):
+    print(f"{abbrev} has the city {city}")
+
+# now do both at the same time
+print('-' * 10)
+for state, abbrev in list(states.items()):
+    print(f"{state} state is abbreviated {abbrev}")
+    print(f"and has city {cities[abbrev]}")
+
+print('-' * 10)
+#safely get an abbreviation by state that might not be there
+state = states.get('Wisconsin')
+
+if not  state:
+    print("Sorry, Wisconsin does not exist")
+
+#get a city with default value
+city = cities.get('WI', 'Does not exist')    
+print(f"The city for the state 'WI' is: {city}")
+
+    
+    
